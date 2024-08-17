@@ -12,7 +12,7 @@ func DefaultHandler(ctx context.Context, b *bot.Bot, update *models.Update) {
 	chatID := update.Message.Chat.ID
 	err, status := b.SendMessage(ctx, &bot.SendMessageParams{
 		ChatID: chatID,
-		Text:   "Киноквиз",
+		Text:   "Я пока ничего не умею",
 	})
 
 	if err == nil {

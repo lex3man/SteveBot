@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"core/bot/cmd/handlers"
+	"core/bot/cmd/middlewares"
 	"log"
 	"os"
 	"os/signal"
@@ -28,7 +29,8 @@ func main() {
 
 	opts := []bot.Option{
 		bot.WithDefaultHandler(handlers.DefaultHandler),
-		bot.WithDebug(),
+		bot.WithMiddlewares(middlewares.ShowMessageWithUserID, middlewares.ShowMessageWithUserName),
+		// bot.WithDebug(),
 	}
 
 	b, err := bot.New(botToken, opts...)
